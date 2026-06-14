@@ -1,0 +1,92 @@
+/* 1. APARICIÓN SUAVE (FADE IN) */
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1.5s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. EFECTO HOVER EN VIDEOS Y TARJETAS */
+.video-card,
+.mitad-imagen img,
+.circulo-espejo {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+.video-card:hover,
+.mitad-imagen img:hover{
+    transform: scale(1.02);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. FLOTAR PARA ICONOS O BOTONES */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.icon,
+.hero-image,
+.circulo-espejo,
+.menu-imagen,
+.diamante {
+    animation: float 3s ease-in-out infinite;
+}
+
+
+.titulo-seccion,
+.titulo-magia {
+    animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Estado inicial: invisible y un poco desplazado */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Estado activo: cuando el JS detecta que entró en pantalla */
+.scroll-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* QUITAMOS el hover de los enlaces de navegación */
+nav a {
+    transition: none !important;
+    /* Elimina animaciones en el nav */
+}

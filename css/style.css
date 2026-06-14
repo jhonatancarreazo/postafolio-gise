@@ -1,0 +1,660 @@
+/* 1. REINICIO GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.playfair-display-sc-bold {
+    font-family: "Playfair Display SC", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.kaushan-script-regular {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 2. ESTILOS GLOBALES */
+body {
+    font-family: 'Playfair Display SC', serif;
+    /* Aplicamos el color beige de la imagen de referencia */
+    background-color: #F3EFEA;
+    color: #4D3524;
+    /* Tono café principal */
+    overflow-x: hidden;
+}
+
+/* 3. CABECERA Y NAVEGACIÓN */
+header {
+    padding: 2rem 4rem 0 0;
+    text-align: right;
+    background: transparent;
+}
+
+nav{
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #6C594A;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+}
+
+nav ul li a:hover {
+    color: #4D3524;
+}
+
+/* 4. CONTENIDO PRINCIPAL Y SECCIONES */
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#inicio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    /* Ocupa la mayor parte de la pantalla */
+    gap: 5%;
+    /* Espacio entre imagen y texto */
+    /* Eliminamos el borde rojo y las propiedades conflictivas */
+    background: transparent;
+    box-shadow: none;
+}
+
+/* 5. COLUMNA IZQUIERDA (IMAGEN) */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 45%;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 380px;
+    height: 600px;
+    object-fit: cover;
+    /* Asegura que la imagen no se deforme */
+    /* Eliminamos el borde punteado de tu versión anterior */
+}
+
+/* 6. COLUMNA DERECHA (TEXTO Y REDES) */
+.content-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h2 {
+    font-size: 6em;
+    /* Reducido de los 10em originales para que encaje bien */
+    color: #4D3524;
+    line-height: 0.85;
+    /* Junta las líneas "GISE" y "CASSIANI" */
+    margin-bottom: 0;
+    letter-spacing: -2px;
+}
+
+.subtile {
+    font-size: 3.5em;
+    color: #90745F;
+    /* Un café más claro para el subtítulo */
+    margin-top: -15px;
+    /* Sube la cursiva para que se superponga ligeramente al título */
+    /* Eliminado el borde sólido teal */
+}
+
+/* 7. REDES SOCIALES */
+.social-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+    background-color: #90745F;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    color: #F3EFEA;
+    /* Icono del color del fondo */
+}
+
+.social-item a {
+    text-decoration: none;
+    font-family: "Playfair Display SC", serif;
+    font-size: 0.75em;
+    color: #4D3524;
+    letter-spacing: 1px;
+}
+
+
+/* --- CLASES DE UTILIDAD GENERAL --- */
+.padding-global {
+    padding: 4rem 2rem;
+}
+
+.titulo-seccion {
+    font-family: "Playfair Display SC", serif;
+    font-size: 3.5em;
+    color: #4D3524;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* --- SECCIÓN: CONOCE MI TRABAJO --- */
+.menu-trabajo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.menu-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.btn-pildora {
+    background-color: #4D3524;
+    color: #F3EFEA;
+    font-family: "Playfair Display", serif;
+    font-size: 1.3em;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    /* Hace la forma de píldora */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.btn-pildora:hover {
+    transform: scale(1.05);
+    /* Pequeño zoom al pasar el mouse */
+}
+
+.menu-imagen {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-imagen img {
+    max-width: 100%;
+    height: 450px;
+    object-fit: contain;
+}
+
+/* --- SECCIONES DIVIDIDAS (50/50) --- */
+.seccion-dividida {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 80vh;
+}
+
+.mitad-imagen,
+.mitad-texto {
+    flex: 1;
+    min-width: 300px;
+    /* Para que colapse en móviles */
+}
+
+.mitad-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cubre todo el espacio sin deformar */
+}
+
+.centrado-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 4rem;
+}
+
+.subtitulo-serif {
+    font-family: "Playfair Display", serif;
+    font-size: 2em;
+    color: #4D3524;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.texto-pequeno {
+    font-family: "Playfair Display", serif;
+    color: #90745F;
+    font-size: 1.1em;
+    margin-bottom: 2rem;
+}
+
+.texto-serif {
+    font-family: "Playfair Display", serif;
+    color: #4D3524;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+/* --- GRÁFICO DE DONA (90%) CSS PURO --- */
+.grafico-dona-contenedor {
+    position: relative;
+    width: 250px;
+    margin: 2rem auto;
+}
+
+.dona-mitad {
+    width: 250px;
+    height: 125px;
+    /* Siempre la mitad del ancho */
+    border: 45px solid #4D3524;
+    /* Grosor del círculo */
+    border-bottom: 0;
+    border-top-left-radius: 125px;
+    border-top-right-radius: 125px;
+    box-sizing: border-box;
+}
+
+.dona-texto {
+    position: absolute;
+    bottom: -15px;
+    /* Lo baja hacia el espacio vacío */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.5em;
+    font-weight: 900;
+    color: #4D3524;
+    font-family: Arial, sans-serif;
+}
+
+/* --- SECCIÓN: ¿POR QUÉ YO? --- */
+.barra-titulo {
+    background-color: #90745F;
+    /* Marrón claro/medio */
+    padding: 1rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.barra-titulo h2 {
+    color: #F3EFEA;
+    font-family: "Playfair Display SC", serif;
+    font-size: 2.5em;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.mitad-imagen-contenida {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mitad-imagen-contenida img {
+    max-width: 80%;
+    border-radius: 10px;
+}
+
+.texto-serif-grande {
+    font-family: "Playfair Display", serif;
+    color: #4D3524;
+    font-size: 1.3em;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* --- SECCIÓN: MARCAS --- */
+#marcas {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+/* --- SECCIÓN: VIDEOS --- */
+.seccion-videos {
+    position: relative;
+    padding: 4rem 0;
+    min-height: 80vh;
+}
+
+.fondo-bicolor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    /* La mitad superior es marrón */
+    background-color: #4D3524;
+    z-index: -1;
+}
+
+.videos-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.btn-back {
+    position: absolute;
+    left: 5%;
+    width: 45px;
+    height: 45px;
+    background-color: #F3EFEA;
+    color: #4D3524;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-back svg {
+    width: 24px;
+    height: 24px;
+}
+
+.pildora-titulo {
+    background-color: #F3EFEA;
+    padding: 10px 40px;
+    border-radius: 50px;
+}
+
+.pildora-titulo h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2em;
+    color: #4D3524;
+    margin: 0;
+    font-weight: 400;
+}
+
+.videos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;    
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.video-card {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 6px solid #F3EFEA;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-card img,
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Esto es la clave: fuerza el encuadre */
+    display: block;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(77, 53, 36, 0.7);
+    color: #F3EFEA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* --- SECCIÓN: MIS SERVICIOS --- */
+.seccion-servicios {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.servicios-titulo-bloque {
+    background-color: #4D3524;
+    padding: 2rem 3rem;
+    width: 40%;
+}
+
+.servicios-titulo-bloque h2 {
+    color: #F3EFEA;
+    font-size: 3em;
+    font-family: "Playfair Display SC", serif;
+    margin: 0;
+    text-align: right;
+}
+
+.lista-servicios {
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.lista-servicios li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.diamante {
+    color: #4D3524;
+    font-size: 1.5em;
+    margin-top: -5px;
+}
+
+.lista-servicios p {
+    font-family: Arial, sans-serif;
+    color: #4D3524;
+    font-size: 1.1em;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+/* --- SECCIÓN: TESTIMONIOS Y ESTADÍSTICAS --- */
+.text-center {
+    text-align: center;
+}
+
+.titulo-estadisticas {
+    font-family: "Playfair Display", serif;
+    font-size: 4em;
+    color: #4D3524;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+.ampersand {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.estadisticas-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-columna {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.stat-columna img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stat-fuente {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5em;
+    color: #90745F;
+    margin-top: 1rem;
+}
+
+/* --- SECCIÓN: CONTACTO --- */
+.align-center {
+    align-items: center;
+}
+
+.texto-centro {
+    text-align: center;
+}
+
+.mitad-imagen-circular {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.circulo-espejo {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circulo-espejo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titulo-magia {
+    font-family: "Playfair Display SC", serif;
+    font-size: 3.5em;
+    color: #4D3524;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo-contacto {
+    font-family: "Playfair Display", serif;
+    color: #90745F;
+    font-size: 1.2em;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+
+.info-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.contacto-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #90745F;
+}
+
+.contacto-item svg {
+    width: 24px;
+    height: 24px;
+}
+
+.contacto-item span {
+    font-family: "Playfair Display", serif;
+    font-size: 1.2em;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #F3EFEA;
+    /* Mismo color de fondo */
+    color: #90745F;
+    /* Color café suave */
+    font-family: "Playfair Display", serif;
+    font-size: 0.9em;
+    border-top: 1px solid #DED6CF;
+    /* Una línea muy fina para separar */
+    margin-top: 2rem;
+}
+
+.site-footer a {
+    color: #4D3524;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #90745F;
+    text-decoration: underline;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Gise Cassiani</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Playfair+Display+SC:wght@400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pagina2.html">Videos</a></li>
+                <li><a href="pagina3.html">Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SECCIÓN: VIDEOS -->
+        <section id="videos" class="seccion-videos scroll-fade">
+            <div class="fondo-bicolor"></div>
+
+            <div class="videos-header">
+                <!-- Este botón ahora te regresa a la página 1 -->
+                <a href="index.html" class="btn-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </a>
+                <div class="pildora-titulo">
+                    <h2>Videos: Hogar</h2>
+                </div>
+            </div>
+
+            <div class="videos-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <video autoplay muted loop controls>
+                        <source src="video/gisecassiani_1109_1777503833_3886306234554935550_1287755111.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <video autoplay muted loop controls>
+                        <source src="video/video2.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <video autoplay muted loop controls>
+                        <source src="video/video3.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+    </main>
+<script src="js/scroll.js"></script>
+</body>
+
+</html>

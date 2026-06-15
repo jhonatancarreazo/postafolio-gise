@@ -75,7 +75,6 @@ main {
     /* Ocupa la mayor parte de la pantalla */
     gap: 5%;
     /* Espacio entre imagen y texto */
-    /* Eliminamos el borde rojo y las propiedades conflictivas */
     background: transparent;
     box-shadow: none;
 }

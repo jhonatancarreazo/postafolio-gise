@@ -30,6 +30,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Playfair+Display+SC:wght@400;700;900&display=swap"
         rel="stylesheet">
+    <link rel="preload" fetchpriority="high" as="image" href="images/hero-image.webp" type="image/webp">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -54,7 +56,7 @@
             <!-- Columna Izquierda: Imagen -->
             <div class="hero-image">
                 <img src="images/hero-image.webp"
-                    alt="Gise Cassiani">
+                    alt="Gise Cassiani" fetchpriority="high">
             </div>
 
             <!-- Columna Derecha: Contenido -->
@@ -117,7 +119,7 @@
                 </div>
         
                 <div class="menu-imagen">
-                    <img src="images/erasebg-transformed.webp" alt="Gise Cassiani">
+                    <img src="images/erasebg-transformed.webp" alt="Gise Cassiani" loading="lazy">
                 </div>
         
                 <div class="menu-columna">
@@ -130,7 +132,7 @@
         
         <section id="por-que-ugc" class="seccion-dividida scroll-fade">
             <div class="mitad-imagen">
-                <img src="images/gise_neon.webp" alt="Por qué UGC">
+                <img src="images/gise_neon.webp" alt="Por qué UGC" loading="lazy">
             </div>
         
             <div class="mitad-texto centrado-vertical">
@@ -155,7 +157,7 @@
         
             <div class="seccion-dividida padding-global">
                 <div class="mitad-imagen-contenida">
-                    <img src="images/gise_jean.webp" alt="Gise Cassiani">
+                    <img src="images/gise_jean.webp" alt="Gise Cassiani" loading="lazy">
                 </div>
         
                 <div class="mitad-texto text-justificado">
@@ -183,7 +185,7 @@
             <a href="https://jhonatancarreazo.dev" target="_blank" rel="noopener noreferrer">Jhonatan Carreazo</a>
         </p>
     </footer>
-<script src="js/scroll.js"></script>
+<script src="js/scroll.js" defer></script>
 </body>
 
 </html>

@@ -108,6 +108,9 @@
                     </div>
                 </div>
             </div>
+            <a href="#conoce-mi-trabajo" id="scroll-down-arrow" class="scroll-arrow seccion-con-flecha">
+                <span>⌄</span>
+            </a>
         </section>
         <section id="conoce-mi-trabajo" class="padding-global scroll-fade">
             <h2 class="titulo-seccion">CONOCE MI TRABAJO</h2>
@@ -128,6 +131,9 @@
                     <a href="pagina3.html#contacto" class="btn-pildora">Contacto</a>
                 </div>
             </div>
+            <a href="#por-que-ugc" class="scroll-arrow">
+                <span>&#8595;</span>
+            </a>
         </section>
         
         <section id="por-que-ugc" class="seccion-dividida scroll-fade">
@@ -142,15 +148,18 @@
         
                 <div class="grafico-dona-contenedor">
                     <div class="dona-mitad"></div>
-                    <span class="dona-texto">90%</span>
+                    <span class="dona-texto" data-target="90">0%</span>
                 </div>
         
                 <p class="texto-serif">La autenticidad del contenido UGC hace que el 90%<br>de los consumidores confíen más en
                     él vs. otros tipos<br>de contenido</p>
             </div>
+            <a href="#por-que-yo" class="scroll-arrow">
+                <span>&#8595;</span>
+            </a>
         </section>
         
-        <section id="por-que-yo" class="scroll-fade">
+        <section id="por-que-yo" class="scroll-fade seccion-con-flecha">
             <div class="barra-titulo">
                 <h2>¿POR QUÉ YO?</h2>
             </div>
@@ -171,13 +180,19 @@
                     </p>
                 </div>
             </div>
+            <a href="#marcas" class="scroll-arrow">
+                <span>&#8595;</span>
+            </a>
         </section>
         
-        <section id="marcas" class="padding-global scroll-fade">
+        <section id="marcas" class="padding-global scroll-fade seccion-con-flecha">
             <h2 class="titulo-seccion">Marcas que han<br>confiado en mí</h2>
         
             <div class="grid-marcas">
             </div>
+            <a href="#inicio" class="scroll-arrow">
+                <span>&#8593;</span>
+            </a>
         </section>
     </main>
     <footer class="site-footer">
@@ -186,6 +201,106 @@
         </p>
     </footer>
 <script src="js/scroll.js" defer></script>
+<script>
+    // 1. Funcionalidad dinámica para TODAS las flechas (tanto bajar como subir)
+    document.querySelectorAll('.scroll-arrow').forEach(flecha => {
+        flecha.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // 2. Funcionalidad inteligente para las teclas "Flecha Abajo" y "Flecha Arriba"
+    window.addEventListener('keydown', function (e) {
+        // Lista de todas tus secciones en orden
+        const secciones = ['#inicio', '#conoce-mi-trabajo', '#por-que-ugc', '#por-que-yo', '#marcas'];
+        const scrollActual = window.scrollY;
+        let targetSection = null;
+
+        // Si presiona Flecha Abajo (Bajar)
+        if (e.key === 'ArrowDown') {
+            for (let i = 0; i < secciones.length; i++) {
+                const elemento = document.querySelector(secciones[i]);
+                if (elemento && elemento.offsetTop > scrollActual + 50) {
+                    targetSection = elemento;
+                    break;
+                }
+            }
+        }
+        // Si presiona Flecha Arriba (Subir)
+        else if (e.key === 'ArrowUp') {
+            for (let i = secciones.length - 1; i >= 0; i--) {
+                const elemento = document.querySelector(secciones[i]);
+                if (elemento && elemento.offsetTop < scrollActual - 50) {
+                    targetSection = elemento;
+                    break;
+                }
+            }
+        }
+
+        // Ejecutar el movimiento si se encontró una sección
+        if (targetSection) {
+            e.preventDefault(); // Evita el salto brusco
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    /* ==========================================================================
+           ANIMACIÓN DEL PORCENTAJE (COUNT-UP) AL HACER SCROLL
+           ========================================================================== */
+       const animarContador = (elemento) => {
+            const target = +elemento.getAttribute('data-target'); // Captura el 90
+            const duracion = 1500; // 1.5 segundos
+            const velocidad = duracion / target;
+            let conteoActual = 0;
+
+            // Buscamos la dona gráfica que está en el mismo contenedor que el texto
+            const donaGrafica = elemento.closest('.grafico-dona-contenedor').querySelector('.dona-mitad');
+
+            const actualizarContador = setInterval(() => {
+                conteoActual++;
+
+                // 1. Actualiza el texto (0% -> 90%)
+                elemento.textContent = conteoActual + '%';
+
+                // 2. Actualiza el diseño de la dona en tiempo real
+                if (donaGrafica) {
+                    donaGrafica.style.setProperty('--porcentaje', conteoActual);
+                }
+
+                if (conteoActual === target) {
+                    clearInterval(actualizarContador);
+                }
+            }, velocidad);
+        };
+
+        // Crear el observador de pantalla
+        const observadorDona = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Si el contenedor de la dona es visible al menos en un 30%
+                if (entry.isIntersecting) {
+                    const textoDona = entry.target.querySelector('.dona-texto');
+                    animarContador(textoDona);
+
+                    // Dejamos de observar para que la animación solo se ejecute una vez
+                    //observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3 // Se activa cuando el 30% del elemento entra en pantalla
+        });
+
+        // Indicar al observador qué elemento debe vigilar
+        const contenedorDona = document.querySelector('.grafico-dona-contenedor');
+        if (contenedorDona) {
+            observadorDona.observe(contenedorDona);
+        }
+</script>
 </body>
 
 </html>
